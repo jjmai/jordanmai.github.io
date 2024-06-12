@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/604a05ffd3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header2">
+        <div class="container">
+            <nav>
+                <img src="Jor_logo.png" class="logo">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+
+            </nav>
+        </div>
+
+    </div>
+
+
+    <h3 class="heading">Video Gallery</h3>
+    <div class="container2">
+        <div class="main-video">
+            <div class="video">
+                <video src="First Time- SLANDER - League MV.mp4" controls muted autoplay></video>
+                <h3 class="title">01. League of Legends MV (First Time)</h3>
+            </div>
+        </div>
+
+        <div class="video-list">
+            <div class="vid active">
+                <video src="First Time- SLANDER - League MV.mp4" controls muted></video>
+                <h3 class="title">01. League of Legends MV (First Time)</h3>
+            </div>
+            <div class="vid">
+                <video src="Said The Sky, Will Anderson, Parachute - Emotion Sickness (OFFICIAL LYRIC VIDEO).mp4"
+                    controls muted></video>
+                <h3 class="title">02. Anime MV (Emotion Sickness)</h3>
+            </div>
+            <div class="vid">
+                <video src="UCLA-RL GRIME- NBA2.mp4" controls muted></video>
+                <h3 class="title">03. NBA Montage (UCLA)</h3>
+            </div>
+            <div class="vid">
+                <video src="Winter Rush Video 2021.mp4" controls muted></video>
+                <h3 class="title">04. Alpha Phi Omega Rush Video</h3>
+            </div>
+            <div class="vid">
+                <video src="Anime Openings - yetep - Let You Go MV.mp4" controls muted></video>
+                <h3 class="title">05. Anime MV 2 (Let You Go)</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let listVideo = document.querySelectorAll('.video-list .vid');
+        let mainVideo = document.querySelector('.main-video video');
+        let title = document.querySelector('.main-video .title');
+
+        listVideo.forEach(video => {
+            video.onclick = () => {
+                listVideo.forEach(vid => vid.classList.remove('active'));
+                video.classList.add('active');
+                if (video.classList.contains('active')) {
+                    let src = video.children[0].getAttribute('src');
+                    mainVideo.src = src;
+                    let text = video.children[1].innerHTML;
+                    title.innerHTML = text;
+                }
+            };
+        });
+
+    </script>
+
+</body>
+
+</html>
